@@ -1,12 +1,16 @@
+import { Navbar } from "../NavBar";
+import { HeaderContainer, HeaderMain, HeaderTitle } from "./style";
 const Header = () => {
   return (
     <>
-      <header>
-        <div>
-          <h2>Kevin_dev.Blog</h2>
-        </div>
-        <nav></nav>
-      </header>
+      <HeaderContainer>
+        <HeaderMain>
+          <HeaderTitle>
+            <h2>Kevin_dev.Blog</h2>
+          </HeaderTitle>
+        </HeaderMain>
+      </HeaderContainer>
+      <Navbar />
     </>
   );
 };
