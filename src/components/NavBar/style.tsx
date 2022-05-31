@@ -14,7 +14,7 @@ interface linkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
 }
 
 const onPage = css`
-  background-color: #2e3034;
+  background-color: #2e2e2e;
   color: #bac1d8;
 `;
 
@@ -25,12 +25,15 @@ export const NavbarLink = styled(Link)<linkProps>`
   width: 15%;
   min-width: 120px;
   height: 40px;
-  color: #2e3034;
+  color: #2e2e2e;
   text-decoration: none;
   font-size: 1.5rem;
   ${(props) => props.currPatch && onPage}
   :hover {
-    background-color: #2e3034;
+    background-color: #404040;
     color: #bac1d8;
+  }
+  :active {
+    background-color: #2e2e2e;
   }
 `;
