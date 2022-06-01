@@ -11,15 +11,31 @@ export const getPosts = createAsyncThunk(
   }
 );
 
+interface PostsState {
+  posts: [];
+  status: "idle" | "loading" | "sucess" | "failed";
+}
+
+const initialState = {
+  posts: [],
+  status: "idle",
+} as PostsState;
+
 const postSlice = createSlice({
   name: "posts",
-  initialState: {
-    posts: [],
-    status: null,
-  },
+  initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(getPosts.fulfilled, (state, action) => {});
+    builder.addCase(getPosts.fulfilled, (state, action) => {
+      state.status = "sucess";
+      state.posts = action.payload;
+    });
+    builder.addCase(getPosts.pending, (state, action) => {
+      state.status.push("loading");
+    });
+    builder.addCase(getPosts.rejected, (state) => {
+      state.status = "failed";
+    });
   },
 });
 
