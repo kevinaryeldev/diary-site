@@ -18,17 +18,8 @@ const postSlice = createSlice({
     status: null,
   },
   reducers: {},
-  extraReducers: {
-    [getPosts.pending]: (state) => {
-      state.status = "loading";
-    },
-    [getPosts.fulfilled]: (state, action) => {
-      state.status = "sucess";
-      state.users = action.payload;
-    },
-    [getPosts.rejected]: (state) => {
-      state.status = "failed";
-    },
+  extraReducers: (builder) => {
+    builder.addCase(getPosts.fulfilled, (state, action) => {});
   },
 });
 
